@@ -2,24 +2,42 @@ import javax.swing.*;
 
 public class windowcomponant{
     private JPanel rootpanel;
-    private JTextField textField1;
+    private JTextField textDez;
+    private JTextField textBin;
+    private JTextField textHexa;
+    private JButton umrechnenButton;
+    private JRadioButton dezimalRadioButton;
+    private JRadioButton hexaRadioButton;
+    private JRadioButton binearRadioButton;
+    private JButton quizButton;
 
-    public void berechne(){
-  //      String eingabe =Blutalkeingabe.getText();
-    //    String eingabe2 =Stundeeingab.getText();
-    //    int betrag= Integer.parseInt(eingabe);
-      //  int hbetrag= Integer.parseInt(eingabe2);
-       // String s="";
-     //   for (int i = 1; i<=hbetrag; i++){
-       //     s= i+".Stunde: "+betrag;
-       //     System.out.print(s);
+
+    public void radiobuttonwahl(){
+        if (binearRadioButton.isSelected()){
+            textBin.setText(null);
+            textDez.setText(null);
+            textHexa.setText(null);
+        } else if (dezimalRadioButton.isSelected()){
+            textBin.setText(null);
+            textDez.setText(null);
+            textHexa.setText(null);
+        } else if (hexaRadioButton.isSelected()){
+            textBin.setText(null);
+            textDez.setText(null);
+            textHexa.setText(null);
         }
+    }
 
-      //  AusgabeArea.setText("AAAA +\n" + "BBBB");
 
-
-   // }
     public JPanel getRootPanel() {
         return rootpanel;
+    }
+
+    public JRadioButton getBinearRadioButton() {
+        return binearRadioButton;
+    }
+
+    public JRadioButton getDezimalRadioButton() {
+        return dezimalRadioButton;
     }
 }
