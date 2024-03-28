@@ -18,6 +18,7 @@ public class Convertwindowcomponant {
         hexaButton.addActionListener((e -> hexa()));
         dezimalButton.addActionListener((e -> dezimal()));
         quizButton.addActionListener((e -> componentswitch()));
+        umrechnenButton.addActionListener((e -> umrechnen()));
     }
 
     private void umrechnen() {
