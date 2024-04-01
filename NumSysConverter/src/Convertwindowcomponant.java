@@ -11,6 +11,9 @@ public class Convertwindowcomponant {
     private JButton binearButton;
     private JButton dezimalButton;
     private JButton hexaButton;
+    private JTextArea textArea1;
+    private JTextArea textArea2;
+    private JTextArea textArea3;
 
 
     public Convertwindowcomponant(){
@@ -70,9 +73,7 @@ public class Convertwindowcomponant {
     public void componentswitch() {
         windowtwo w2= new windowtwo();
         w2.setVisible(true);
-        window w= new window();
-        w.setVisible(false);
-    }
+       }
 
     public JPanel getRootPanel() {
         return rootpanel;

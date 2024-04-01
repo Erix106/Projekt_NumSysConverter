@@ -10,7 +10,7 @@ public class window extends JFrame{
         setPreferredSize(new Dimension(800, 600));
 
         // Titel setzen
-        setTitle("Erstes Beispiel Fenster");
+        setTitle("Umrechner");
 
         // Close on Exit, d.h. Programm beenden wenn oben rechts X gedrückt wird
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

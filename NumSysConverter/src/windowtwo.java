@@ -9,7 +9,7 @@ public class windowtwo extends JFrame{
         setPreferredSize(new Dimension(800, 600));
 
         // Titel setzen
-        setTitle("Zweites Beispiel Fenster");
+        setTitle("Umrechnen Pruefung");
 
         // Close on Exit, d.h. Programm beenden wenn oben rechts X gedrückt wird
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
