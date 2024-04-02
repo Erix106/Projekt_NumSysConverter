@@ -11,10 +11,9 @@ public class Convertwindowcomponant {
     private JButton binearButton;
     private JButton dezimalButton;
     private JButton hexaButton;
-    private JTextArea textArea1;
-    private JTextArea textArea2;
-    private JTextArea textArea3;
-
+    private JTextArea textArearechwegBin;
+    private JTextArea textArearechwegHex;
+    private JTextArea textArearechwegDez;
 
     public Convertwindowcomponant(){
         binearButton.addActionListener((e -> binear()));
@@ -25,33 +24,62 @@ public class Convertwindowcomponant {
     }
 
     private void umrechnen() {
+
         if (textBin.isEnabled()) {
             // Umrechnung von Binär
             String binary = textBin.getText();
-            textDez.setText(String.valueOf(BinearUmrechenen.binaryToDecimal(binary)));
-            textHexa.setText(BinearUmrechenen.binaryToHex(binary));
+            if (!binary.matches("[01]+")) {
+                JOptionPane.showMessageDialog(null, "Ungültige Eingabe für Binär.");
+                return;
+            }
+            int decimal = BinearUmrechenen.binaryToDecimal(binary);
+            textDez.setText(Integer.toString(decimal));
+            textHexa.setText(DezimalUmrechnen.decimalToHex(decimal));
+            textHexa.setEnabled(false);
+            textDez.setEnabled(false);
+            textBin.setEnabled(false);
         } else if (textDez.isEnabled()) {
             // Umrechnung von Dezimal
-            int decimal = Integer.parseInt(textDez.getText());
+            String decimalString = textDez.getText();
+            if (!decimalString.matches("\\d+")) {
+                JOptionPane.showMessageDialog(null, "Ungültige Eingabe für Dezimal.");
+                return;
+            }
+            int decimal = Integer.parseInt(decimalString);
             textBin.setText(DezimalUmrechnen.decimalToBinary(decimal));
             textHexa.setText(DezimalUmrechnen.decimalToHex(decimal));
+            textHexa.setEnabled(false);
+            textDez.setEnabled(false);
+            textBin.setEnabled(false);
         } else if (textHexa.isEnabled()) {
             // Umrechnung von Hexadezimal
             String hex = textHexa.getText();
+            if (!hex.matches("[0-9A-Fa-f]+")) {
+                JOptionPane.showMessageDialog(null, "Ungültige Eingabe für Hexadezimal.");
+                return;
+            }
+            int decimal = HexaUmrechnen.hexToDecimal(hex);
             textBin.setText(HexaUmrechnen.hexToBinary(hex));
-            textDez.setText(String.valueOf(HexaUmrechnen.hexToDecimal(hex)));
+            textDez.setText(Integer.toString(decimal));
+            textHexa.setEnabled(false);
+            textDez.setEnabled(false);
+            textBin.setEnabled(false);
         }
     }
+
 
     public void textfield(){
         textBin.setText(null);
         textHexa.setText(null);
         textDez.setText(null);
+        textArearechwegBin.setText(null);
+        textArearechwegHex.setText(null);
+        textArearechwegDez.setText(null);
     }
 
     public void hexa(){
-       textfield();
-       textHexa.setEnabled(true);
+        textfield();
+        textHexa.setEnabled(true);
         textDez.setEnabled(false);
         textBin.setEnabled(false);
     }
@@ -71,12 +99,11 @@ public class Convertwindowcomponant {
     }
 
     public void componentswitch() {
-        windowtwo w2= new windowtwo();
+        windowtwo w2 = new windowtwo();
         w2.setVisible(true);
-       }
+    }
 
     public JPanel getRootPanel() {
         return rootpanel;
     }
-
 }
