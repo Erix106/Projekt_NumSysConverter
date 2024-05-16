@@ -2,6 +2,9 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Random;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
 
 public class Quizwindowcomponant {
     private JPanel QuizPanle;
@@ -22,7 +25,11 @@ public class Quizwindowcomponant {
     private void componentswitch() {
         window w = new window();
         w.setVisible(true);
+        w.getDefaultCloseOperation();
     }
+
+
+
 
     private void generateRandomBinary() {
         Random random = new Random();

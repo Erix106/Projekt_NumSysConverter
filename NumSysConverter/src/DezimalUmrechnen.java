@@ -21,11 +21,13 @@ public class DezimalUmrechnen {
         }
         while (decimal > 0) {
             int remainder = decimal % 16;
+            char hexDigit;
             if (remainder < 10) {
-                hex.insert(0, (char) ('0' + remainder));
+                hexDigit = (char) ('0' + remainder);
             } else {
-                hex.insert(0, (char) ('A' + remainder - 10));
+                hexDigit = (char) ('A' + remainder - 10);
             }
+            hex.insert(0, hexDigit);
             decimal /= 16;
         }
         return hex.toString();
